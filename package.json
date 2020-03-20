@@ -13,8 +13,7 @@
     "build-test": "tsc -b ./ci/tsconfig.json --preserveWatchOutput",
     "bundle": "webpack --config ci/webpack.config.js --display-error-details --bail",
     "test": "mocha \"out-ci/*.test.js\" --headless",
-    "ciserver": "gulp ciserver",
-    "prepare": "npm run release"
+    "ciserver": "gulp ciserver"
   },
   "typings": "./esm/vs/editor/editor.api.d.ts",
   "module": "./esm/vs/editor/editor.main.js",

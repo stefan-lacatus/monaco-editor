@@ -6464,6 +6464,11 @@ declare namespace monaco.languages.typescript {
         getSuggestionDiagnostics(fileName: string): Promise<Diagnostic[]>;
 
         /**
+         * Get the content of a given file.
+         */
+        getScriptText(fileName: string): Promise<string | undefined>;
+
+        /**
          * Get diagnostic messages related to the current compiler options.
          * @param fileName Not used
          */
@@ -6570,10 +6575,16 @@ declare namespace monaco.languages.typescript {
     export const typescriptDefaults: LanguageServiceDefaults;
     export const javascriptDefaults: LanguageServiceDefaults;
 
-    export const getTypeScriptWorker: () => Promise<(...uris: Uri[]) => Promise<TypeScriptWorker>>;
-    export const getJavaScriptWorker: () => Promise<(...uris: Uri[]) => Promise<TypeScriptWorker>>;
+    export var getTypeScriptWorker: () => Promise<any>;
+    export var getJavaScriptWorker: () => Promise<any>;
+
+    export var getLanguageWorker: (languageName: string) => Promise<any>;
+    export var setupNamedLanguage: (languageDefinition: languages.ILanguageExtensionPoint, isTypescript: boolean, registerLanguage?: boolean) => void;
+    export var getLanguageDefaults: (languageName: string) => LanguageServiceDefaults;
 }
 
+declare module 'monaco-languages/release/esm/javascript/javascript';
+declare module 'monaco-languages/release/esm/typescript/typescript';
 /*---------------------------------------------------------------------------------------------
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
