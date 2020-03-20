@@ -297,13 +297,14 @@ function ESM_pluginStream(plugin, destinationPath) {
 
 				if (!/(^\.\/)|(^\.\.\/)/.test(importText)) {
 					// non-relative import
-					if (!/^monaco-editor-core/.test(importText)) {
+					if (!/^monaco-editor-core/.test(importText) && !/^monaco-languages/.test(importText)) {
 						console.error(`Non-relative import for unknown module: ${importText} in ${data.path}`);
 						process.exit(0);
 					}
-
+					const isLanguagesImport = /^monaco-languages/.test(importText);
 					const myFileDestPath = path.join(DESTINATION, plugin.modulePrefix, data.relative);
-					const importFilePath = path.join(DESTINATION, importText.substr('monaco-editor-core/esm/'.length));
+					const importFilePath = path.join(isLanguagesImport ? path.join(DESTINATION, "vs", "basic-languages") : DESTINATION,
+						importText.substr(isLanguagesImport ? 'monaco-languages/release/esm/'.length : 'monaco-editor-core/esm/'.length));
 					let relativePath = path.relative(path.dirname(myFileDestPath), importFilePath).replace(/\\/g, '/');
 					if (!/(^\.\/)|(^\.\.\/)/.test(relativePath)) {
 						relativePath = './' + relativePath;
