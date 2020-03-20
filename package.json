@@ -14,7 +14,7 @@
     "bundle": "webpack --config ci/webpack.config.js --display-error-details --bail",
     "test": "mocha \"out-ci/*.test.js\" --headless",
     "ciserver": "gulp ciserver",
-    "prepack": "npm run release"
+    "prepare": "npm run release"
   },
   "typings": "./esm/vs/editor/editor.api.d.ts",
   "module": "./esm/vs/editor/editor.main.js",
