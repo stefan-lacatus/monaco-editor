@@ -13,7 +13,8 @@
     "build-test": "tsc -b ./ci/tsconfig.json --preserveWatchOutput",
     "bundle": "webpack --config ci/webpack.config.js --display-error-details --bail",
     "test": "mocha \"out-ci/*.test.js\" --headless",
-    "ciserver": "gulp ciserver"
+    "ciserver": "gulp ciserver",
+    "prepack": "npm run release"
   },
   "typings": "./esm/vs/editor/editor.api.d.ts",
   "module": "./esm/vs/editor/editor.main.js",
@@ -38,7 +39,7 @@
     "monaco-html": "2.7.0",
     "monaco-json": "2.9.0",
     "monaco-languages": "1.10.0",
-    "monaco-typescript": "3.7.0",
+    "monaco-typescript": "git+https://git@github.com/stefan-lacatus/monaco-typescript.git",
     "puppeteer": "^1.15.0",
     "rimraf": "^3.0.2",
     "style-loader": "^1.1.3",
