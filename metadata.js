@@ -16,12 +16,11 @@
 				name: 'monaco-typescript',
 				contrib: 'vs/language/typescript/monaco.contribution',
 				modulePrefix: 'vs/language/typescript',
-				thirdPartyNotices: 'node_modules/monaco-typescript/ThirdPartyNotices.txt',
 				paths: {
 					src: '/monaco-typescript/release/dev',
-					'npm/dev': 'node_modules/monaco-typescript/release/dev',
-					'npm/min': 'node_modules/monaco-typescript/release/min',
-					esm: 'node_modules/monaco-typescript/release/esm',
+					'npm/dev': 'node_modules/@placatus/monaco-typescript/release/dev',
+					'npm/min': 'node_modules/@placatus/monaco-typescript/release/min',
+					esm: 'node_modules/monaco-typescript/@placatus/release/esm',
 				}
 			},
 			{

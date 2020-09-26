@@ -6743,11 +6743,6 @@ declare namespace monaco.languages.typescript {
          */
         getScriptText(fileName: string): Promise<string | undefined>;
         /**
-         * Get the content of a given file.
-         */
-        getScriptText(fileName: string): Promise<string | undefined>;
-
-        /**
          * Get diagnostic messages related to the current compiler options.
          * @param fileName Not used
          */
@@ -6865,20 +6860,57 @@ declare namespace monaco.languages.typescript {
             formatOptions: any
         ): Promise<ReadonlyArray<any>>;
     }
+    class LanguageServiceDefaultsImpl implements LanguageServiceDefaults {
+        private _onDidChange;
+        private _onDidExtraLibsChange;
+        private _extraLibs;
+        private _removedExtraLibs;
+        private _eagerModelSync;
+        private _compilerOptions;
+        private _diagnosticsOptions;
+        private _workerOptions;
+        private _onDidExtraLibsChangeTimeout;
+        constructor(
+            languageId: string,
+            compilerOptions: CompilerOptions,
+            diagnosticsOptions: DiagnosticsOptions,
+            workerOptions: WorkerOptions
+        );
+        get onDidChange(): IEvent<void>;
+        get onDidExtraLibsChange(): IEvent<void>;
+        get workerOptions(): WorkerOptions;
+        getExtraLibs(): IExtraLibs;
+        addExtraLib(content: string, _filePath?: string): IDisposable;
+        setExtraLibs(
+            libs: {
+                content: string;
+                filePath?: string;
+            }[]
+        ): void;
+        private _fireOnDidExtraLibsChangeSoon;
+        getCompilerOptions(): CompilerOptions;
+        setCompilerOptions(options: CompilerOptions): void;
+        getDiagnosticsOptions(): DiagnosticsOptions;
+        setDiagnosticsOptions(options: DiagnosticsOptions): void;
+        setWorkerOptions(options: WorkerOptions): void;
+        setMaximumWorkerIdleTime(value: number): void;
+        setEagerModelSync(value: boolean): void;
+        getEagerModelSync(): boolean;
+    }
     export const typescriptVersion: string;
-    export const typescriptDefaults: LanguageServiceDefaults;
-    export const javascriptDefaults: LanguageServiceDefaults;
-
-    export var getTypeScriptWorker: () => Promise<any>;
-    export var getJavaScriptWorker: () => Promise<any>;
-
-    export var getLanguageWorker: (languageName: string) => Promise<any>;
-    export var setupNamedLanguage: (languageDefinition: languages.ILanguageExtensionPoint, isTypescript: boolean, registerLanguage?: boolean) => void;
-    export var getLanguageDefaults: (languageName: string) => LanguageServiceDefaults;
+    export function getTypeScriptWorker(): Promise<(...uris: Uri[]) => Promise<TypeScriptWorker>>;
+    export function getJavaScriptWorker(): Promise<(...uris: Uri[]) => Promise<TypeScriptWorker>>;
+    export function getLanguageWorker(
+        languageName: string
+    ): Promise<(...uris: Uri[]) => Promise<TypeScriptWorker>>;
+    export function getLanguageDefaults(languageName: string): LanguageServiceDefaultsImpl;
+    export function setupNamedLanguage(
+        languageDefinition: languages.ILanguageExtensionPoint,
+        isTypescript: boolean,
+        registerLanguage?: boolean
+    ): void;
 }
 
-declare module 'monaco-languages/release/esm/javascript/javascript';
-declare module 'monaco-languages/release/esm/typescript/typescript';
 /*---------------------------------------------------------------------------------------------
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
