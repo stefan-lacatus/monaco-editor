@@ -1,6 +1,6 @@
 {
   "name": "@placatus/monaco-editor",
-  "version": "0.25.4",
+  "version": "0.25.5",
   "description": "A browser based code editor. For created for use in https://github.com/ptc-iot-sharing/MonacoEditorTWX. Uses forked version of https://github.com/stefan-lacatus/monaco-typescript",
   "author": "Microsoft Corporation",
   "license": "MIT",
@@ -26,7 +26,7 @@
     "monaco-html": "3.5.1",
     "monaco-json": "3.5.1",
     "monaco-languages": "2.5.0",
-    "monaco-typescript": "npm:@placatus/monaco-typescript@^4.5.0",
+    "monaco-typescript": "npm:@placatus/monaco-typescript@^4.5.1",
     "rimraf": "^3.0.2",
     "typedoc": "^0.20.29",
     "typescript": "4.2.3",
