@@ -1,6 +1,6 @@
 {
   "name": "@placatus/monaco-editor",
-  "version": "0.25.2",
+  "version": "0.25.3",
   "description": "A browser based code editor",
   "author": "Microsoft Corporation",
   "license": "MIT",
