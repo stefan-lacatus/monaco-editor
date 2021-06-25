@@ -1,5 +1,165 @@
 # Monaco Editor Changelog
 
+## [0.25.2] (17.06.2021)
+
+* fixes a problem that [certain characters could not be typed on non-US keyboards](https://github.com/microsoft/monaco-editor/issues/2533).
+
+## [0.25.1] (15.06.2021)
+
+* fixes that [`registerHTMLLanguageService` is not available in the AMD version of the monaco-html contribution](https://github.com/microsoft/monaco-editor/issues/2525).
+
+## [0.25.0] (11.06.2021)
+* added a new feature `inlineSuggest` that features a provider api and new settings.
+* added `suggest.preview` to toggle previewing the selected suggest item.
+* added `suggest.showDeprecated`
+* CSS/HTML: added support for [custom data format](https://code.visualstudio.com/blogs/2020/02/24/custom-data-format)
+* HTML: added `registerHTMLLanguageService`
+
+### Breaking changes
+* renamed `inlineHints` to `inlayHints`.
+
+### Thank you
+
+Contributions to `monaco-editor`:
+
+* [@JeanPerriault (El Jùanch0)](https://github.com/JeanPerriault): Fix error message in Safari - Semantic token play [PR #2486](https://github.com/microsoft/monaco-editor/pull/2486)
+* [@jonatanklosko (Jonatan Kłosko)](https://github.com/jonatanklosko): Add Elixir sample [PR #2491](https://github.com/microsoft/monaco-editor/pull/2491)
+
+Contributions to `monaco-languages`:
+
+* [@akonatala (apoorva konatala)](https://github.com/akonatala): Update cameligo language support [PR #137](https://github.com/microsoft/monaco-languages/pull/137)
+* [@anark](https://github.com/anark): Add aliases and mimetypes to liquid language [PR #136](https://github.com/microsoft/monaco-languages/pull/136)
+* [@mattvague (Matt Vague)](https://github.com/mattvague): Fix incorrect filenames for liquid [PR #135](https://github.com/microsoft/monaco-languages/pull/135)
+* [@spahnke (Sebastian Pahnke)](https://github.com/spahnke)
+  * [JS/TS] Add support for the RegExp Match Indices flag [PR #139](https://github.com/microsoft/monaco-languages/pull/139)
+  * [TS] Add override keyword [PR #140](https://github.com/microsoft/monaco-languages/pull/140)
+
+Contributions to `monaco-typescript`:
+
+* [@paranoidjk (paranoidjk)](https://github.com/paranoidjk): fix: support go to definition for extraLib file [PR #79](https://github.com/microsoft/monaco-typescript/pull/79)
+
+## [0.24.0] (12.05.2021)
+
+* added a setting `domReadOnly` which controls if the `<textarea>` used for editor input should have the DOM `readonly` attribute
+* added a setting `useShadowDOM` which can be set to `false` to prevent the editor from using shadow DOM in its implementation (e.g. for the contextmenus).
+* added a settings `autoClosingDelete` that controls how backspace works inside auto-closing pairs.
+* added `DiagnosticsOptions.onlyVisible` for TypeScript which limits the computation of diagnostics to only visible text models.
+* fixed issue where the editor would not load in Safari 13.
+
+### Breaking changes
+* `EditorAutoClosingOvertypeStrategy` has been renamed to `EditorAutoClosingEditStrategy`
+
+### Thank you
+
+Contributions to `monaco-editor`:
+
+* [@AmyQianqianwang (王倩倩)](https://github.com/AmyQianqianwang): add version compare link for version greater than V0.14.3 [PR #2433](https://github.com/microsoft/monaco-editor/pull/2433)
+
+Contributions to `monaco-editor-webpack-plugin`:
+
+* [@k15a (Konstantin Pschera)](https://github.com/k15a): Use compiler.webpack if available [PR #147](https://github.com/microsoft/monaco-editor-webpack-plugin/pull/147)
+* [@sangmokh (Sangmok Han)](https://github.com/sangmokh): Add globalAPI option to expose the editor API through a global monaco object [PR #145](https://github.com/microsoft/monaco-editor-webpack-plugin/pull/145)
+
+Contributions to `monaco-languages`:
+
+* [@anthony-c-martin (Anthony Martin)](https://github.com/anthony-c-martin): Add support for Bicep language [PR #132](https://github.com/microsoft/monaco-languages/pull/132)
+* [@jonatanklosko (Jonatan Kłosko)](https://github.com/jonatanklosko): Add Elixir language definition and tokenizer [PR #130](https://github.com/microsoft/monaco-languages/pull/130)
+* [@mattgodbolt (Matt Godbolt)](https://github.com/mattgodbolt): Handle whitespace within C++ preprocessor comments [PR #127](https://github.com/microsoft/monaco-languages/pull/127)
+* [@mattvague (Matt Vague)](https://github.com/mattvague): Add basic language support for Liquid  [PR #128](https://github.com/microsoft/monaco-languages/pull/128)
+* [@NullVoxPopuli](https://github.com/NullVoxPopuli): Add hbs alias to handlebars [PR #134](https://github.com/microsoft/monaco-languages/pull/134)
+
+Contributions to `monaco-typescript`:
+
+* [@spahnke (Sebastian Pahnke)](https://github.com/spahnke): Deep clone diagnostic objects [PR #76](https://github.com/microsoft/monaco-typescript/pull/76)
+
+
+## [0.23.0] (05.03.2021)
+
+* improves input on Android (using Gboard)
+* automatically switches to high contrast when the OS is using high contrast (doesn't work in Firefox). Can be turned off via `autoDetectHighContrast`.
+* the editor no longer supports classical Edge, which has reached End of Support on March 9th, 2021. See https://docs.microsoft.com/en-us/lifecycle/faq/internet-explorer-microsoft-edge#what-is-the-lifecycle-policy-for-microsoft-edge
+
+### Thank you
+
+Contributions to `monaco-languages`:
+
+* [@Contentmaudlin (Mert Ussakli)](https://github.com/Contentmaudlin): Property is not a keyword in C# [PR #124](https://github.com/microsoft/monaco-languages/pull/124)
+* [@mattgodbolt (Matt Godbolt)](https://github.com/mattgodbolt): Support better C++ annotation highlighting [PR #125](https://github.com/microsoft/monaco-languages/pull/125)
+* [@mwellman17 (Michael Wellman)](https://github.com/mwellman17): Add text/x-yaml MIME type. [PR #126](https://github.com/microsoft/monaco-languages/pull/126)
+
+Contributions to `monaco-typescript`:
+
+* [@spahnke (Sebastian Pahnke)](https://github.com/spahnke): Keep fileName property of diagnostic objects and related information [PR #74](https://github.com/microsoft/monaco-typescript/pull/74)
+
+## [0.22.3] (01.02.2021)
+
+Fixes a regression where symbol icons used in suggestions or quick outline were missing colors (see https://github.com/microsoft/monaco-editor/issues/2329).
+
+## [0.22.2] (01.02.2021)
+
+Fixes a regression where under certain webpack configurations `process.nextTick` could be used without explicitly checking for it being defined (see https://github.com/microsoft/monaco-editor/issues/2328).
+
+## [0.22.1] (29.01.2021)
+
+Fixes a regression where format commands would no longer work (see https://github.com/microsoft/monaco-editor/issues/2327).
+
+## [0.22.0] (29.01.2021)
+
+### New & Noteworthy
+* new grammars for Modula-3 and ECL (Enterprise Control Language).
+* added `monaco.editor.onDidChangeMarkers` to listen for marker changes.
+* added `monaco.editor.registerCommand` to register global commands.
+* added `monaco.languages.setColorMap` to allow defining the color map used for tokenization.
+* added `IMonarchLanguage.includeLF` to allow matching against the `\n` at the end of each line.
+* new editor option `stickyTabStops` to make interacting with spaces in indentation behave more like interacting with tabs.
+
+### Breaking changes
+* The ESM version of the editor will no longer define a global `monaco` object. You can define `global.MonacoEnvironment = { globalAPI: true }` if you want for the editor to define this global object.
+* Renamed `OnTypeRenameProvider` to `LinkedEditingRangeProvider` and related methods like the editor option `renameOnType` (now `linkedEditing`), `registerOnTypeRenameProvider` (now `registerLinkedEditingRangeProvider`), etc.
+* Renamed `OnEnterRule.oneLineAboveText` to `OnEnterRule.previousLineText`
+
+### Thank you
+
+Contributions to `monaco-editor`:
+
+* [@Gittenburg](https://github.com/Gittenburg): Fix comment in sample [PR #2161](https://github.com/microsoft/monaco-editor/pull/2161)
+* [@luminaxster (David Gonzalez)](https://github.com/luminaxster): Missing breaking change [PR #2186](https://github.com/microsoft/monaco-editor/pull/2186)
+* [@svick (Petr Onderka)](https://github.com/svick): Fixed indentation in C# sample [PR #2250](https://github.com/microsoft/monaco-editor/pull/2250)
+
+Contributions to `monaco-languages`:
+
+* [@arlosi (Arlo Siemsen)](https://github.com/arlosi): Rust: add support for keywords from the 2018 edition [PR #123](https://github.com/microsoft/monaco-languages/pull/123)
+* [@dehilsterlexis (David de Hilster)](https://github.com/dehilsterlexis): LEXER-ECL-001 Lexer for ECL (Enterprise Control Language) [PR #118](https://github.com/microsoft/monaco-languages/pull/118)
+* [@fonsecas72 (Hugo Fonseca)](https://github.com/fonsecas72): terraform Fix heredoc [PR #116](https://github.com/microsoft/monaco-languages/pull/116)
+* [@jcchu](https://github.com/jcchu): Add Modula-3 support [PR #117](https://github.com/microsoft/monaco-languages/pull/117)
+* [@maclockard (Mac Lockard)](https://github.com/maclockard): Fix highlighting of GROUP BY for redshift [PR #122](https://github.com/microsoft/monaco-languages/pull/122)
+* [@philipsens (Sergi Philipsen)](https://github.com/philipsens): Add auto indent for xml [PR #113](https://github.com/microsoft/monaco-languages/pull/113)
+* [@stla](https://github.com/stla)
+  * completed the list of roxygen tags [PR #114](https://github.com/microsoft/monaco-languages/pull/114)
+  * removed white spaces in constants [PR #115](https://github.com/microsoft/monaco-languages/pull/115)
+* [@VarghaSabee (Sabolch Varha)](https://github.com/VarghaSabee): Safari regex error fix (negative lookbehind) #2179 [PR #121](https://github.com/microsoft/monaco-languages/pull/121)
+
+Contributions to `monaco-typescript`:
+
+* [@Kingwl (Wenlu Wang)](https://github.com/Kingwl): Add new jsx emit option [PR #73](https://github.com/microsoft/monaco-typescript/pull/73)
+
+Contributions to `monaco-css`:
+
+* [@jpett](https://github.com/jpett): Fix error Cannot read property 'getModeId' of null [PR #10](https://github.com/microsoft/monaco-css/pull/10)
+
+
+
+## [0.21.3] (18.01.2021)
+
+Fixes a regression in suggestions where the browser clipboard API would be accessed by incomplete suggestion lists (see https://github.com/microsoft/vscode/commit/96d61842bae1e5dd11f9ff6139fad9e3e5141401).
+
+## [0.21.2] (27.09.2020)
+
+Fixes [a regression in monaco-css](https://github.com/microsoft/monaco-editor/issues/2158).
+
+### Breaking changes
+* `monaco.uri` methods `file, from, isUri, joinPath, parse, revive` are now static. Changing `new monaco.uri.method` to `monaco.uri.method` resolves 'TypeError: monaco.Uri.file is not a constructor at...' errors.
+
 ## [0.21.1] (24.09.2020)
 
 Fixes [a few regressions](https://github.com/microsoft/monaco-editor/issues?q=is%3Aissue+milestone%3A%22August+2020+%282%29%22+is%3Aclosed).
@@ -862,6 +1022,35 @@ Contributions to `monaco-languages`:
 - The editor functions now correctly when hosted inside a `position:fixed` element.
 - Cross-origin configuration is now picked up (as advertised in documentation from MonacoEnvironment)
 
+[0.24.0]: https://github.com/Microsoft/monaco-editor/compare/v0.23.0...v0.24.0
+[0.23.0]: https://github.com/Microsoft/monaco-editor/compare/v0.22.3...v0.23.0
+[0.22.3]: https://github.com/Microsoft/monaco-editor/compare/v0.22.2...v0.22.3
+[0.22.2]: https://github.com/Microsoft/monaco-editor/compare/v0.22.1...v0.22.2
+[0.22.1]: https://github.com/Microsoft/monaco-editor/compare/v0.22.0...v0.22.1
+[0.22.0]: https://github.com/Microsoft/monaco-editor/compare/v0.21.3...v0.22.0
+[0.21.3]: https://github.com/Microsoft/monaco-editor/compare/v0.21.2...v0.21.3
+[0.21.2]: https://github.com/Microsoft/monaco-editor/compare/v0.21.1...v0.21.2
+[0.21.1]: https://github.com/Microsoft/monaco-editor/compare/v0.21.0...v0.21.1
+[0.21.0]: https://github.com/Microsoft/monaco-editor/compare/v0.20.0...v0.21.0
+[0.20.0]: https://github.com/Microsoft/monaco-editor/compare/v0.19.3...v0.20.0
+[0.19.3]: https://github.com/Microsoft/monaco-editor/compare/v0.19.2...v0.19.3
+[0.19.2]: https://github.com/Microsoft/monaco-editor/compare/v0.19.1...v0.19.2
+[0.19.1]: https://github.com/Microsoft/monaco-editor/compare/v0.20.0...v0.19.1
+[0.19.0]: https://github.com/Microsoft/monaco-editor/compare/v0.18.1...v0.19.0
+[0.18.1]: https://github.com/Microsoft/monaco-editor/compare/v0.18.0...v0.18.1
+[0.18.0]: https://github.com/Microsoft/monaco-editor/compare/v0.17.1...v0.18.0
+[0.17.1]: https://github.com/Microsoft/monaco-editor/compare/v0.17.0...v0.17.1
+[0.17.0]: https://github.com/Microsoft/monaco-editor/compare/v0.16.2...v0.17.0
+[0.16.2]: https://github.com/Microsoft/monaco-editor/compare/v0.16.1...v0.16.2
+[0.16.1]: https://github.com/Microsoft/monaco-editor/compare/v0.16.0...v0.16.1
+[0.16.0]: https://github.com/Microsoft/monaco-editor/compare/v0.15.6...v0.16.0
+[0.15.6]: https://github.com/Microsoft/monaco-editor/compare/v0.15.5...v0.15.6
+[0.15.5]: https://github.com/Microsoft/monaco-editor/compare/v0.15.4...v0.15.5
+[0.15.4]: https://github.com/Microsoft/monaco-editor/compare/v0.15.3...v0.15.4
+[0.15.3]: https://github.com/Microsoft/monaco-editor/compare/v0.15.2...v0.15.3
+[0.15.2]: https://github.com/Microsoft/monaco-editor/compare/v0.15.1...v0.15.2
+[0.15.1]: https://github.com/Microsoft/monaco-editor/compare/v0.15.0...v0.15.1
+[0.15.0]: https://github.com/Microsoft/monaco-editor/compare/v0.14.3...v0.15.0
 [0.14.3]: https://github.com/Microsoft/monaco-editor/compare/v0.14.2...v0.14.3
 [0.14.2]: https://github.com/Microsoft/monaco-editor/compare/v0.14.1...v0.14.2
 [0.14.1]: https://github.com/Microsoft/monaco-editor/compare/v0.14.0...v0.14.1

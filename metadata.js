@@ -18,9 +18,9 @@
 				modulePrefix: 'vs/language/typescript',
 				paths: {
 					src: '/monaco-typescript/release/dev',
-					'npm/dev': 'node_modules/@placatus/monaco-typescript/release/dev',
-					'npm/min': 'node_modules/@placatus/monaco-typescript/release/min',
-					esm: 'node_modules/@placatus/monaco-typescript/release/esm',
+					'npm/dev': 'node_modules/monaco-typescript/release/dev',
+					'npm/min': 'node_modules/monaco-typescript/release/min',
+					esm: 'node_modules/monaco-typescript/release/esm',
 				}
 			},
 			{

@@ -1,4 +1,8 @@
-# Monaco Editor
+# Monaco Editor fork for ThingWorx
+
+Read more about this fork here: https://github.com/ptc-iot-sharing/MonacoEditorTWX/blob/master/CONTRIBUITING.md
+
+Next is the original readme file from the upstream repository.
 
 [![Build Status](https://dev.azure.com/ms/monaco-editor/_apis/build/status/microsoft.monaco-editor?label=website)](https://dev.azure.com/ms/monaco-editor/_build/latest?definitionId=3)
 
